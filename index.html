@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>To-Do List</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/input.css" />
+  <link rel="stylesheet" href="css/button.css" />
 </head>
 <body>
+    
   <div class="container">
-    <h1>📝 To-Do List</h1>
-    <div class="input-group">
-      <input type="text" id="taskInput" placeholder="Add a task..." />
-      <button id="addTaskBtn">+</button>
+    <div class="input__container">
+        <div class="shadow__input"></div>
+        <button id="addTaskBtn" class="input__button__shadow">
+        +
+        </button>
+        <input
+        type="text"
+        id='taskInput'
+        class="input__search"
+        placeholder="Enter task"
+        />
     </div>
+
     <ul id="taskList" class="task-list"></ul>
     <div class="filters">
       <button data-filter="all">All</button>

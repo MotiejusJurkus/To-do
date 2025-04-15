@@ -1,4 +1,4 @@
-import { renderTasks, addTask, getTasks } from './tasks.js';
+import { renderTasks, addTask } from './tasks.js';
 
 const taskInput = document.getElementById('taskInput');
 const addTaskBtn = document.getElementById('addTaskBtn');
@@ -10,23 +10,27 @@ function getActiveFilter() {
   return btn?.dataset.filter || 'all';
 }
 
-addTaskBtn.onclick = () => {
-  const text = taskInput.value.trim();
-  if (text) {
-    addTask(text);
-    taskInput.value = '';
-    renderTasks(taskList, getActiveFilter());
-  }
-};
-
-filterButtons.forEach(btn => {
-  btn.onclick = () => {
-    filterButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderTasks(taskList, btn.dataset.filter);
+if (addTaskBtn && taskInput) {
+  addTaskBtn.onclick = () => {
+    const text = taskInput.value.trim();
+    if (text) {
+      addTask(text);
+      taskInput.value = '';
+      renderTasks(taskList, getActiveFilter());
+    }
   };
-});
+}
 
-// Initialize
-filterButtons[0].classList.add('active');
+if (filterButtons.length > 0) {
+  filterButtons.forEach(btn => {
+    btn.onclick = () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderTasks(taskList, btn.dataset.filter);
+    };
+  });
+
+  filterButtons[0].classList.add('active');
+}
+
 renderTasks(taskList, getActiveFilter());

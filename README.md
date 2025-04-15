@@ -1,11 +1,11 @@
-Project Title: Clearly state the name of your app.
+To-do list app.
 
-Description: Briefly describe what the app does.
+Description: Keep track of your tasks and the ones you have finished.
 
-Features: List the core and advanced features implemented.
+Features: -
 
-Technologies Used: Mention HTML, CSS, JavaScript, and any libraries/frameworks.
+Technologies Used: Mention HTML, CSS, JavaScript.
 
-Setup Instructions: Provide steps to run the app locally.
+Setup Instructions: -
 
 Live Demo: Include a link if hosted online (e.g., GitHub Pages, Netlify).​
