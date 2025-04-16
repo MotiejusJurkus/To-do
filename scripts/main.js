@@ -19,6 +19,16 @@ if (addTaskBtn && taskInput) {
       renderTasks(taskList, getActiveFilter());
     }
   };
+
+  // ✅ ENTER key triggers task add + button animation
+  taskInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addTaskBtn.click(); // Use existing button logic
+      addTaskBtn.classList.add("active"); // Visual feedback
+      setTimeout(() => addTaskBtn.classList.remove("active"), 150);
+    }
+  });
 }
 
 if (filterButtons.length > 0) {

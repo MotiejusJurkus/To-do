@@ -1,0 +1,67 @@
+.task-list {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: -0.5px;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 2px;   /* aligns closer to red line */
+    padding-right: 30px;
+  }
+  
+  /* Task Items */
+  .task-list li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 black;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+    gap: 1rem;
+    word-break: break-word;
+    transition: all 0.2s ease-in-out;
+    width: 100%; /* use full width of the parent */
+  }
+  
+  
+  /* Hover effect */
+  .task-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 #000;
+  }
+  
+  /* Checkbox styling */
+  .task-list input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: #000;
+    margin-right: 10px;
+  }
+  
+  /* Completed text */
+  .task-list .completed {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  /* Delete button */
+  .task-list button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: red;
+    margin-left: 0.5rem;
+  }
+  
+  /* Ensure label takes up space and aligns properly */
+  .task-list label {
+    flex: 1;
+    text-align: left;
+    word-break: break-word;
+  }
+  

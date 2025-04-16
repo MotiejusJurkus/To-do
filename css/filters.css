@@ -1,0 +1,42 @@
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: -0.5px;
+  }
+  
+  .filters button {
+    background: white;
+    border: 3px solid black;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: -0.5px;
+  }
+  
+  .filters button:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 black;
+  }
+  
+  .filters button.active {
+    background: #f7d000;
+    color: black;
+  }
+
+  .filters button.active {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 black;
+  }

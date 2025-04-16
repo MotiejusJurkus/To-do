@@ -1,0 +1,10 @@
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .task-list button:hover .delete-icon {
+    transform: scale(1.2);
+  }

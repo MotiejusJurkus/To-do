@@ -23,42 +23,54 @@ export function toggleTask(index, completed) {
 
 export function renderTasks(taskListElement, filter) {
   taskListElement.innerHTML = '';
-  const filtered = tasks.filter(task =>
-    filter === 'all' ||
-    (filter === 'active' && !task.completed) ||
-    (filter === 'completed' && task.completed)
-  );
 
-  filtered.forEach((task, index) => {
+  const filteredTasks = tasks.filter((task) => {
+    return (
+      filter === 'all' ||
+      (filter === 'active' && !task.completed) ||
+      (filter === 'completed' && task.completed)
+    );
+  });
+
+  filteredTasks.forEach((task, renderIndex) => {
+    const trueIndex = tasks.findIndex(t => t === task); // retain original index
     const li = document.createElement('li');
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
+
+    // ✅ Accessibility: Add unique ID and name
+    const checkboxId = `task-${trueIndex}`;
+    checkbox.id = checkboxId;
+    checkbox.name = checkboxId;
+
     checkbox.onchange = () => {
-      toggleTask(index, checkbox.checked);
+      toggleTask(trueIndex, checkbox.checked);
       renderTasks(taskListElement, getActiveFilter());
     };
 
-    const span = document.createElement('span');
-    span.textContent = task.text;
-    if (task.completed) span.classList.add('completed');
+    const label = document.createElement('label');
+    label.setAttribute('for', checkboxId);
+    label.textContent = task.text;
+    if (task.completed) label.classList.add('completed');
 
     const delBtn = document.createElement('button');
-    delBtn.textContent = '🗑';
+    delBtn.innerHTML = `<img src="assets/delete.svg" alt="Delete" class="delete-icon">`;
     delBtn.onclick = () => {
-      deleteTask(index);
+      deleteTask(trueIndex);
       renderTasks(taskListElement, getActiveFilter());
     };
 
     li.appendChild(checkbox);
-    li.appendChild(span);
+    li.appendChild(label);
     li.appendChild(delBtn);
+
     taskListElement.appendChild(li);
   });
 }
 
 function getActiveFilter() {
-  const btn = document.querySelector('.filters button.active');
-  return btn?.dataset.filter || 'all';
+  const activeBtn = document.querySelector('.filters button.active');
+  return activeBtn?.dataset.filter || 'all';
 }

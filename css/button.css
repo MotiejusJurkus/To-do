@@ -33,3 +33,8 @@ button {
     /* Push the button downwards when pressed */
     transform: translateY(0);
   }
+
+  #addTaskBtn.active {
+    transform: scale(0.95);
+    transition: transform 0.15s ease;
+  }
